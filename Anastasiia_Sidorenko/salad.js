@@ -1,29 +1,30 @@
-function Salad(type) {
+function Salad(type, size) {
     this.type = type;
+    this.size = size;
 }
 
 Salad.CAESAR = {
-    type: 'caesar',
+    size: 100,
     price: 100,
     calories: 20
 };
 
 Salad.OLIVIER = {
-    type: 'olivier',
+    size: 100,
     price: 50,
     calories: 80
 };
 
-Salad.prototype.getType = function () {
-    return this.type.type;
-};
+Salad.prototype.getSize = function () {
+    return this.type.size;
+}
 
 Salad.prototype.calculatePrice = function () {
-    return this.type.price;
+    return this.type.price / this.type.size * this.size;
 };
 
 Salad.prototype.calculateCalories = function () {
-    return this.type.calories;
+    return this.type.calories / this.type.size * this.size;
 };
 
 module.exports = Salad;

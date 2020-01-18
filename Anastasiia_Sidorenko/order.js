@@ -29,7 +29,7 @@ Order.prototype.calculateCalories = function () {
 
 Order.prototype.processPayment = function () {
     console.log('Вы должны заплатить: ' + this.calculatePrice());
-    Object.freeze(this);
+    Object.freeze(this.order);
 };
 
 Order.prototype.processCalories = function () {
