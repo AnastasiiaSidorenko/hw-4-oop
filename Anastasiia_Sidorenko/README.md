@@ -1,2 +1,2 @@
-***How to run the program*
+**How to run the program**
 run `node index.js`
