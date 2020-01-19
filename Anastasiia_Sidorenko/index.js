@@ -9,12 +9,18 @@ var saladOlivier = new Salad(Salad.OLIVIER, 150);
 var drinkCoffee = new Drink(Drink.Coffee);
 var order = new Order();
 
+console.log(hamburgerSmall.getName());
+console.log(hamburgerLarge.getName());
+console.log(saladOlivier.getName());
+console.log(drinkCoffee.getName());
+
 order.addItem(hamburgerSmall);
 order.addItem(hamburgerLarge);
 order.addItem(saladOlivier);
+order.addItem(saladOlivier);
 order.addItem(drinkCoffee);
 
-//order.removeItem(saladOlivier);
+order.removeItem(saladOlivier);
 
 order.processPayment();
 order.processCalories();

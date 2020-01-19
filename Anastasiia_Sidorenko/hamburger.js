@@ -1,16 +1,22 @@
-function Hamburger(size, stuffing) {
-    this.size = size;
+var Item = require('./item');
+
+function Hamburger(type, stuffing) {
+    Item.call(this, type);
     this.stuffing = stuffing;
 }
 
+Hamburger.prototype = Object.create(Item.prototype);
+
 Hamburger.SIZE_SMALL = {
     size: 'small',
+    name: 'Small Mac',
     price: 50,
     calories: 20
 };
 
 Hamburger.SIZE_LARGE = {
     size: 'large',
+    name: 'Big Mac',
     price: 100,
     calories: 40
 };
@@ -34,7 +40,7 @@ Hamburger.STUFFING_POTATO = {
 };
 
 Hamburger.prototype.getSize = function () {
-    return this.size.size;
+    return this.type.size;
 };
 
 Hamburger.prototype.getStuffing = function () {
@@ -42,11 +48,11 @@ Hamburger.prototype.getStuffing = function () {
 };
 
 Hamburger.prototype.calculatePrice = function () {
-    return this.size.price + this.stuffing.price;
+    return this.type.price + this.stuffing.price;
 };
 
 Hamburger.prototype.calculateCalories = function () {
-    return this.size.calories + this.stuffing.calories;
+    return this.type.calories + this.stuffing.calories;
 };
 
 module.exports = Hamburger;

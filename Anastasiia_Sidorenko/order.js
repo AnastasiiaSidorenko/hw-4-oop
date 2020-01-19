@@ -1,15 +1,24 @@
 function Order() {
     this.order = [];
+    this.payment = false;
 }
 
 Order.prototype.addItem = function (item) {
-    this.order.push(item);
+    if (this.payment) {
+        console.log('Заказ оплачен, невозможно добавить позицию');
+    } else {
+        this.order.push(item);
+    }
 };
 
 Order.prototype.removeItem = function (item) {
-    var itemIndex = this.order.indexOf(item);
-    if (itemIndex !== -1) {
-        this.order.splice(itemIndex, 1);
+    if (this.payment) {
+        console.log('Заказ оплачен, невозможно удалить позицию');
+    } else {
+        var itemIndex = this.order.indexOf(item);
+        if (itemIndex !== -1) {
+            this.order.splice(itemIndex, 1);
+        }
     }
 };
 
@@ -29,6 +38,7 @@ Order.prototype.calculateCalories = function () {
 
 Order.prototype.processPayment = function () {
     console.log('Вы должны заплатить: ' + this.calculatePrice());
+    this.payment = true;
     Object.freeze(this.order);
 };
 

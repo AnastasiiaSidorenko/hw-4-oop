@@ -1,15 +1,21 @@
+var Item = require('./item');
+
 function Salad(type, size) {
-    this.type = type;
+    Item.call(this, type);
     this.size = size;
 }
 
+Salad.prototype = Object.create(Item.prototype);
+
 Salad.CAESAR = {
+    name: 'Caesar',
     size: 100,
     price: 100,
     calories: 20
 };
 
 Salad.OLIVIER = {
+    name: 'Olivier',
     size: 100,
     price: 50,
     calories: 80
